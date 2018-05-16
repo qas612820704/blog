@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'gatsby-link';
 import styled from 'styled-components';
 import cover from '../../static/cover.jpeg';
 import _, { media } from '../variables';
@@ -27,6 +28,14 @@ const Wrapper = styled.div`
     padding: 1em;
   }
 
+  a {
+    color: inherit;
+    &:hover, &:active {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
   h1 {
     font-weight: 800;
   }
@@ -38,8 +47,10 @@ const Wrapper = styled.div`
 export default () => (
   <Header>
     <Wrapper>
-      <h1>Blog</h1>
-      <h2>{`< Lego />`}</h2>
+      <Link to="/">
+        <h1>Blog</h1>
+        <h2>{`< Lego />`}</h2>
+      </Link>
     </Wrapper>
   </Header>
 )
