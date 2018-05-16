@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import Post from '../components/Post';
 
 export default ({ data }) => (
   <Container>
     <Row>
       <Col xs={12}>
-        hi
+      { data.posts.edges.map(edge => (
+        <Post post={edge.node} />
+      ))}
       </Col>
     </Row>
   </Container>
@@ -13,14 +16,15 @@ export default ({ data }) => (
 
 export const query = graphql`
   query IndexQuery {
-    posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    posts: allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
           id
-          excerpt
+          excerpt(pruneLength: 500)
           timeToRead
+          fields {
+            slug
+          }
           frontmatter {
             title
             tags
@@ -29,11 +33,11 @@ export const query = graphql`
           }
         }
       }
-      categories: group( field: frontmatter___category ) {
+      categories: group(field: frontmatter___category) {
         category: fieldValue
         totalCount
       }
-      tags: group( field: frontmatter___tags ) {
+      tags: group(field: frontmatter___tags) {
         tag: fieldValue
         edges {
           node {
