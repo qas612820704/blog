@@ -7,6 +7,7 @@ module.exports = {
         path: `${__dirname}/data/posts/`,
       },
     },
-    `gatsby-transformer-remark`
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
   ]
 };
