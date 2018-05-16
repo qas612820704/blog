@@ -1,6 +1,15 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
-export default () => <div>Hello world!</div>
+export default ({ data }) => (
+  <Container>
+    <Row>
+      <Col xs={12}>
+        hi
+      </Col>
+    </Row>
+  </Container>
+)
 
 export const query = graphql`
   query IndexQuery {

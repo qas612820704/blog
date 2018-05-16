@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import cover from '../../static/cover.jpeg';
+import _, { media } from '../variables';
 
 const Header = styled.header`
   display: flex;
+  margin-bottom: 2em;
   height: 300px;
 
   background: url(${cover});
@@ -17,9 +19,14 @@ const Wrapper = styled.div`
   padding: 2em;
 
   text-align: center;
-  color: var(--white);
+  color: ${_.white};
   background: #343a409e;
-  font-family: var(--font-family-monospace);
+  font-family: ${_.fontFamilyMonospace};
+
+  ${media(_.sm)} {
+    padding: 1em;
+  }
+
   h1 {
     font-weight: 800;
   }
