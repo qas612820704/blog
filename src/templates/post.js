@@ -6,7 +6,7 @@ export default ({ pathContext, data }) => (
   <Container>
     <Row>
       <Col xs={12}>
-        <Post post={data.post } />
+        <Post post={data.post } active />
       </Col>
     </Row>
   </Container>
@@ -21,7 +21,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         cover
-        date(formatString: "MM/DD/YYYY")
+        date(formatString: "MMM D, YYYY")
         category
         tags
       }
