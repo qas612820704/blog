@@ -14,10 +14,9 @@ const Post = styled.div`
   max-height:  650px;
   overflow: hidden;
 
-  margin-bottom: 2em;
-
   ${props => props.active && css`
     max-height: initial;
+    margin-bottom: 2em;
   `};
 `;
 
