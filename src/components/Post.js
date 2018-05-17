@@ -1,130 +1,89 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import { Button } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import GoCalendar from 'react-icons/lib/go/calendar';
 import GoPackage from 'react-icons/lib/go/package';
-import GoGitCommit from 'react-icons/lib/go/git-commit';
 import GoCommentDiscussion from 'react-icons/lib/go/comment-discussion';
 import styled, { css } from 'styled-components';
 import Disqus from './Disqus';
 import { Hr } from './Components.styled';
 import _ from '../variables';
 
-const shrinkedHeight = 650;
-const shadowHeight = 0.5 * shrinkedHeight;
-
 const Post = styled.div`
   position: relative;
-  max-height: ${shrinkedHeight}px;
+  max-height:  650px;
   overflow: hidden;
+
+  margin-bottom: 2em;
 
   ${props => props.active && css`
     max-height: initial;
-    margin-bottom: 2em;
   `};
 `;
 
-const Info = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+const Info = styled(Row)`
   margin-top: 1em;
-  margin-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  margin-bottom: 0.5em;
 
-  color: ${_.grayDark};
+  *:last-child {
+    margin-bottom: 0;
+  }
 `;
 
-const Pan = styled.div`
-  display: flex;
-  align-items: center;
-
-  margin-right: 1em;
-  margin-bottom: 1em;
-
-  svg {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-  }
-
-  div {
-    p {
-      line-height: 1.2;
-      margin-bottom: 0;
-    }
-  }
-`
-
 const Text = styled.article`
-  margin-top: 1em;
   margin-bottom: 2em;
-`
+  p:first-child::first-letter {
+    font-size: 200%;
+  }
+`;
 
 const Shadow = styled.div`
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 30%;
+  height: 40%;
   width: 100%;
 
-  background: linear-gradient(rgba(0,0,0,0) 30%,rgba(0,0,0,0.5));
+  background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
 `;
 
 const ReadMoreBtn = styled(Button)`
   margin: 1em;
   border-radius: 2em !important;
-
-  a {
-    color: ${_.white};
-    &:hover {
-      color: ${_.white};
-    }
-  }
 `;
 
 export default ({ post, active }) => (
   <Post active={active}>
-    <h3>
-      <GoGitCommit />
-      {' '}
+    <h1>
       <Link to={post.fields.slug}>
       { post.frontmatter.title }
       </Link>
-    </h3>
+    </h1>
     <Info>
-      <Pan>
-        <GoCalendar />
-        <div>
-          <p><b>Publish on</b> {post.frontmatter.date}</p>
-          <p style={{ color: _.secondary }}>{post.timeToRead} min read</p>
-        </div>
-      </Pan>
-      <Pan>
-        <GoPackage />
-        <div>
-          <b>In Category</b>
-          <p style={{ color: _.secondary }}>{post.frontmatter.category}</p>
-        </div>
-      </Pan>
+      <Col xs={12} sm={6}>
+        <b>Publish on</b> {post.frontmatter.date}
+        <p style={{ color: _.secondary }}>{post.timeToRead} min read</p>
+      </Col>
+      <Col xs={12} sm={6}>
+        <b>In Category</b>
+        <p style={{ color: _.secondary }}>{post.frontmatter.category}</p>
+      </Col>
     </Info>
     <Text dangerouslySetInnerHTML={{ __html: post.html }} />
     { active !== true &&
-      <Link to={post.fields.slug}>
         <Shadow>
-          <ReadMoreBtn color="danger">Read more</ReadMoreBtn>
+          <Link to={post.fields.slug}>
+            <ReadMoreBtn>Read More</ReadMoreBtn>
+          </Link>
         </Shadow>
-      </Link>
     }
     { active && (
       <div>
         <Hr />
-        <h4>
-          <GoCommentDiscussion />{' '}Comments
-        </h4>
+        <h2>Comments</h2>
         <Disqus post={post}/>
       </div>
     )}

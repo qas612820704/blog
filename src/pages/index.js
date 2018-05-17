@@ -1,16 +1,22 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import styled from 'styled-components';
 import Post from '../components/Post';
-import { Hr } from '../components/Components.styled';
+
+const ColwHr = styled(Col)`
+  margin-bottom: 2em;
+  :not(:last-child) {
+    border-bottom: solid 1px;
+  }
+`
 
 export default ({ data }) => (
   <Container>
     <Row>
       { data.posts.edges.map(edge => (
-      <Col xs={12}>
+      <ColwHr xs={12}>
         <Post post={edge.node} />
-        <Hr />
-      </Col>
+      </ColwHr>
       ))}
     </Row>
   </Container>
