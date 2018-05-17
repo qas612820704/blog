@@ -1,7 +1,15 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap'
+import Post from '../components/Post'
 
 export default ({ pathContext, data }) => (
-  <div>{pathContext.slug}</div>
+  <Container>
+    <Row>
+      <Col xs={12}>
+        <Post post={data.post } />
+      </Col>
+    </Row>
+  </Container>
 );
 
 export const pageQuery = graphql`

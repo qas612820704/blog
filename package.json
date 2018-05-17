@@ -14,6 +14,7 @@
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.36",
     "gatsby-transformer-remark": "^1.7.41",
+    "react-icons": "^2.2.7",
     "reactstrap": "^6.0.1",
     "styled-components": "^3.2.6"
   }
