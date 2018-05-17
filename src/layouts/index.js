@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { injectGlobal } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'prismjs/themes/prism-okaidia.css';
+import 'katex/dist/katex.min.css';
 
 injectGlobal`
   body {
