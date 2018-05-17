@@ -35,6 +35,15 @@ const Text = styled.article`
   p:first-child::first-letter {
     font-size: 200%;
   }
+
+  & :not(pre) > code[class*="language-"] {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    color: black;
+    background-color: rgba(27,31,35,0.05);
+    text-shadow: none;
+  }
 `;
 
 const Shadow = styled.div`
