@@ -4,7 +4,10 @@ import { Button } from 'reactstrap';
 import GoCalendar from 'react-icons/lib/go/calendar';
 import GoPackage from 'react-icons/lib/go/package';
 import GoGitCommit from 'react-icons/lib/go/git-commit';
+import GoCommentDiscussion from 'react-icons/lib/go/comment-discussion';
 import styled, { css } from 'styled-components';
+import Disqus from './Disqus';
+import { Hr } from './Components.styled';
 import _ from '../variables';
 
 const shrinkedHeight = 650;
@@ -12,12 +15,13 @@ const shadowHeight = 0.5 * shrinkedHeight;
 
 const Post = styled.div`
   position: relative;
-  max-height: ${props => props.active
-    ? 'initial'
-    : `${shrinkedHeight}px`
-  };
+  max-height: ${shrinkedHeight}px;
   overflow: hidden;
 
+  ${props => props.active && css`
+    max-height: initial;
+    margin-bottom: 2em;
+  `};
 `;
 
 const Info = styled.div`
@@ -54,6 +58,7 @@ const Pan = styled.div`
 
 const Text = styled.article`
   margin-top: 1em;
+  margin-bottom: 2em;
 `
 
 const Shadow = styled.div`
@@ -114,5 +119,14 @@ export default ({ post, active }) => (
         </Shadow>
       </Link>
     }
+    { active && (
+      <div>
+        <Hr />
+        <h4>
+          <GoCommentDiscussion />{' '}Comments
+        </h4>
+        <Disqus post={post}/>
+      </div>
+    )}
   </Post>
 );

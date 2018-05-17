@@ -1,4 +1,8 @@
 module.exports = {
+  pathPrefix: '/blog/',
+  siteMetadata: {
+    siteUrl: `http://qas612820704.github.io/blog/`
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
