@@ -22,6 +22,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-embed-snippet`,
+            options: {
+              classPrefix: `language-`,
+              directory: `${__dirname}/leetcode.js/`,
+            },
+          },
           `gatsby-remark-prismjs`,
           `gatsby-remark-katex`,
         ],
