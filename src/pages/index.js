@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import SEO, { postListToSEO } from '../components/SEO';
 import Post from '../components/Post';
 
 export default ({ data }) => (
   <Container>
+    <SEO seo={postListToSEO(data.posts)}/>
     <Row>
       { data.posts.edges.map(edge => (
       <Col xs={12}>
