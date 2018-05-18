@@ -1,8 +1,29 @@
 import React from 'react'
+import HeadRoom from 'react-headroom';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import cover from '../../static/cover.jpeg';
+import logo from '../../static/logo.png';
 import _, { media } from '../variables';
+
+const Room = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+`;
+
+const BedRoom = styled.div`
+  img {
+    height: 1em;
+  }
+`;
+
+const Balcony = styled.div`
+  a {
+    margin-left: 1em;
+  }
+`;
+
 
 const Header = styled.header`
   display: flex;
@@ -45,12 +66,22 @@ const Wrapper = styled.div`
 `
 
 export default () => (
-  <Header>
-    <Wrapper>
-      <Link to="/">
-        <h1>Blog</h1>
-        <h2>{`< Lego />`}</h2>
-      </Link>
-    </Wrapper>
-  </Header>
+  <div>
+    <HeadRoom style={{ background: _.white }}>
+      <Room>
+        <BedRoom><Link to="/"><img src={logo} alt=""/></Link></BedRoom>
+        <Balcony>
+          <Link to="/about">About</Link>
+        </Balcony>
+      </Room>
+    </HeadRoom>
+    <Header>
+      <Wrapper>
+        <Link to="/">
+          <h1>Blog</h1>
+          <h2>{`< Lego />`}</h2>
+        </Link>
+      </Wrapper>
+    </Header>
+  </div>
 )
