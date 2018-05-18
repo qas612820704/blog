@@ -6,88 +6,65 @@ import GoPackage from 'react-icons/lib/go/package';
 import GoCommentDiscussion from 'react-icons/lib/go/comment-discussion';
 import styled, { css } from 'styled-components';
 import Disqus from './Disqus';
-import { Hr } from './Components.styled';
+import { Hr, inlineCodeCss } from './Components.styled';
 import _ from '../variables';
 
 const Post = styled.div`
-  position: relative;
-  max-height:  650px;
-  overflow: hidden;
-
-  ${props => props.active && css`
-    max-height: initial;
-    margin-bottom: 2em;
-  `};
+  margin-bottom: 2em;
 `;
 
-const Info = styled(Row)`
+const Info = styled.p`
   margin-top: 1em;
   margin-bottom: 0.5em;
 
   *:last-child {
     margin-bottom: 0;
   }
+
+  ${props => props.right && css`
+    text-align: right;
+  `}
 `;
 
 const Text = styled.article`
-  margin-bottom: 2em;
-  p:first-child::first-letter {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  &::first-letter, p:first-child::first-letter {
     font-size: 200%;
   }
 
   & :not(pre) > code[class*="language-"] {
-    padding: 0.2em 0.4em;
-    margin: 0;
-    font-size: 85%;
-    color: black;
-    background-color: rgba(27,31,35,0.05);
-    text-shadow: none;
+    ${inlineCodeCss}
   }
-`;
-
-const Shadow = styled.div`
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 40%;
-  width: 100%;
-
-  background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
-`;
-
-const ReadMoreBtn = styled(Button)`
-  margin: 1em;
-  border-radius: 2em !important;
 `;
 
 export default ({ post, active }) => (
   <Post active={active}>
     <h1>
-      <Link to={post.fields.slug}>
-      { post.frontmatter.title }
-      </Link>
+      <b>
+        <Link to={post.fields.slug}>
+        { post.frontmatter.title }
+        </Link>
+      </b>
     </h1>
     <Info>
-      <Col xs={12} sm={6}>
-        <b>Publish on</b> {post.frontmatter.date}
-        <p style={{ color: _.secondary }}>{post.timeToRead} min read</p>
-      </Col>
-      <Col xs={12} sm={6}>
-        <b>In Category</b>
-        <p style={{ color: _.secondary }}>{post.frontmatter.category}</p>
-      </Col>
+      {post.frontmatter.date}
+      {', '}
+      <span style={{ color: _.secondary }}>{post.timeToRead} min read</span>
     </Info>
-    <Text dangerouslySetInnerHTML={{ __html: post.html }} />
-    { active !== true &&
-        <Shadow>
-          <Link to={post.fields.slug}>
-            <ReadMoreBtn>Read More</ReadMoreBtn>
-          </Link>
-        </Shadow>
-    }
+    { !active && <Text>{post.excerpt} <Link to={post.fields.slug}>read more</Link></Text>}
+    { active && <Text dangerouslySetInnerHTML={{ __html: post.html }} />}
+    <Info right>
+      Category
+      {' '}
+      <span style={{ color: _.secondary }}>{post.frontmatter.category}</span>
+    </Info>
+    <Info right>
+      Tags
+      {' '}
+      <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
+    </Info>
     { active && (
       <div>
         <Hr />

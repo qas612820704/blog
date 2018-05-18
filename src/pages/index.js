@@ -1,22 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import styled from 'styled-components';
 import Post from '../components/Post';
-
-const ColwHr = styled(Col)`
-  margin-bottom: 2em;
-  :not(:last-child) {
-    border-bottom: solid 1px;
-  }
-`
 
 export default ({ data }) => (
   <Container>
     <Row>
       { data.posts.edges.map(edge => (
-      <ColwHr xs={12}>
+      <Col xs={12}>
         <Post post={edge.node} />
-      </ColwHr>
+      </Col>
       ))}
     </Row>
   </Container>
@@ -28,8 +20,8 @@ export const query = graphql`
       edges {
         node {
           id
-          html
           timeToRead
+          excerpt(pruneLength: 300)
           fields {
             slug
           }
@@ -37,7 +29,7 @@ export const query = graphql`
             title
             tags
             cover
-            date(fromNow: true)
+            date(formatString: "MMM D, YYYY")
             category
           }
         }

@@ -17,7 +17,6 @@ export const pageQuery = graphql`
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
-      excerpt
       frontmatter {
         title
         cover
