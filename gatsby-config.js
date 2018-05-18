@@ -30,12 +30,18 @@ module.exports = {
             },
           },
           `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              ignoreFileExtensions: [],
+            },
+          },
           `gatsby-remark-katex`,
         ],
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ]
 };
