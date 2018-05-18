@@ -41,8 +41,10 @@ const Wrapper = styled.div`
   padding: 2em;
 
   text-align: center;
+  text-shadow: 2px 2px ${_.gray};
   color: ${_.white};
   background: #343a409e;
+  background: ${_.light}5e;
   font-family: ${_.fontFamilyMonospace};
 
   ${media(_.sm)} {
