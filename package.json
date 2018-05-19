@@ -15,6 +15,7 @@
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-remark-copy-linked-files": "^1.5.32",
     "gatsby-remark-embed-snippet": "^1.0.22",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-katex": "^1.0.14",
     "gatsby-remark-prismjs": "^2.0.2",
     "gatsby-source-filesystem": "^1.5.36",

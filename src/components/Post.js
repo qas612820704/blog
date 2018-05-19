@@ -6,7 +6,7 @@ import GoPackage from 'react-icons/lib/go/package';
 import GoCommentDiscussion from 'react-icons/lib/go/comment-discussion';
 import styled, { css } from 'styled-components';
 import Disqus from './Disqus';
-import { Hr, inlineCodeCss } from './Components.styled';
+import { Hr, inlineCodeCss, Article as d4Article } from './Components.styled';
 import _ from '../variables';
 
 const Post = styled.div`
@@ -26,16 +26,25 @@ const Info = styled.p`
   `}
 `;
 
-const Text = styled.article`
+const Text = styled(d4Article)`
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 
-  &::first-letter, p:first-child::first-letter {
+  & > *:first-child {
+    margin-top: 2em;
+  }
+
+  &::first-letter, & > p:first-child::first-letter {
     font-size: 200%;
   }
 
   & :not(pre) > code[class*="language-"] {
     ${inlineCodeCss}
+  }
+
+  .gatsby-highlight {
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 `;
 

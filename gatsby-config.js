@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/blog/',
+  pathPrefix: '/',
   siteMetadata: {
     siteUrl: `http://qas612820704.github.io/blog/`
   },
@@ -34,6 +34,13 @@ module.exports = {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
               ignoreFileExtensions: [],
+            },
+          },
+          {
+            resolve: `gatsby-remark-external-links`,
+            options: {
+              target: `_blank`,
+              rel: `nofollow`,
             },
           },
           `gatsby-remark-katex`,
