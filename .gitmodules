@@ -1,3 +1,4 @@
 [submodule "leetcode.js"]
 	path = leetcode.js
 	url = git@github.com:qas612820704/leetcode.js.git
+	branch = master
