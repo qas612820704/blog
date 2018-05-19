@@ -41,6 +41,7 @@ const MediaCol = styled(Col)`
 `;
 
 const FaEvelopeX = styled(FaEvelope)`
+  margin-left: 0.1em;
   font-size: 1.15em !important;
 `;
 
@@ -67,21 +68,21 @@ export default () => (
     <MarginRow>
       <Col>
         <h2>Information</h2>
-        <p>Lego / 江柏廷</p>
-        <p>Dept. CS, NCTU</p>
-        <p></p>
+        <p>江柏廷</p>
+        <p>交通大學, 網路工程所</p>
+        <p>中興大學, 應用數學系</p>
         <p></p>
       </Col>
       <MediaCol>
         <h2>Contact</h2>
         <p>
-          <a href="https://www.facebook.com/leegochiang" target="_blank">
-            <FaFacebook /> leegochiang
+          <a href="https://github.com/qas612820704" target="_blank">
+            <FaGithub /> qas612820704
           </a>
         </p>
         <p>
-          <a href="https://github.com/qas612820704" target="_blank">
-            <FaGithub /> qas612820704
+          <a href="https://www.facebook.com/leegochiang" target="_blank">
+            <FaFacebook /> leegochiang
           </a>
         </p>
         <p>
