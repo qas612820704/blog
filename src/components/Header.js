@@ -69,7 +69,7 @@ const Wrapper = styled.div`
 
 export default () => (
   <div>
-    <HeadRoom style={{ background: _.white }}>
+    <HeadRoom style={{ background: _.white, boxShadow: '0 0 8px #888888' }}>
       <Room>
         <BedRoom><Link to="/"><img src={logo} alt=""/></Link></BedRoom>
         <Balcony>
