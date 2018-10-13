@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { withPrefix } from 'gatsby-link';
-import { pathPrefix, siteMetadata } from '../../gatsby-config';
+import { withPrefix } from 'gatsby';
+import { siteMetadata } from '../../gatsby-config';
 
 const defaultSEO = {
   title: `Lego's Site`,
@@ -12,13 +12,13 @@ const defaultSEO = {
 
 /* TODO:
  *  refer to https://github.com/Vagr9K/gatsby-advanced-starter/blob/master/src/components/SEO/SEO.jsx
- */
 const defaultSchemaOrgJSONLD = {
   "@context": "http://schema.org",
   "@type": "WebSite",
   url: defaultSEO.url,
   name: defaultSEO.title,
 }
+ */
 
 export const postToSEO = post => ({
   type: 'post',

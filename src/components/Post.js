@@ -1,9 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import { Row, Col, Button } from 'reactstrap';
-import GoCalendar from 'react-icons/lib/go/calendar';
-import GoPackage from 'react-icons/lib/go/package';
-import GoCommentDiscussion from 'react-icons/lib/go/comment-discussion';
+import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import Disqus from './Disqus';
 import { Hr, inlineCodeCss, Article as d4Article } from './Components.styled';

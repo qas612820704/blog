@@ -1,16 +1,14 @@
 import React from 'react';
-import Link from 'gatsby-link';
+// eslint-disable-next-line no-unused-vars
 import Prism from 'prismjs';
 import PrismCode from 'react-prism';
 import { Container, Row, Col }from 'reactstrap';
-import GoRepo from 'react-icons/lib/go/repo';
-import GoLocation from 'react-icons/lib/go/location';
 import FaFacebook from 'react-icons/lib/fa/facebook-square';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaEvelope from 'react-icons/lib/fa/envelope';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { withLayout } from '../layouts';
 import avatar from '../../static/avatar.jpg';
-import _, { media } from '../variables';
 
 const Avatar = styled.img`
   width: 80%;
@@ -53,7 +51,7 @@ const introJsx = `\
   />
 `
 
-export default () => (
+const About = () => (
   <Container>
     <MarginRow>
       <AvatarCol xs={12} sm={5}>
@@ -76,12 +74,12 @@ export default () => (
       <MediaCol>
         <h2>Contact</h2>
         <p>
-          <a href="https://github.com/qas612820704" target="_blank">
+          <a href="https://github.com/qas612820704" target="_blank" rel="noopener noreferrer">
             <FaGithub /> qas612820704
           </a>
         </p>
         <p>
-          <a href="https://www.facebook.com/leegochiang" target="_blank">
+          <a href="https://www.facebook.com/leegochiang" target="_blank" rel="noopener noreferrer">
             <FaFacebook /> leegochiang
           </a>
         </p>
@@ -94,3 +92,5 @@ export default () => (
     </MarginRow>
   </Container>
 )
+
+export default withLayout(About);

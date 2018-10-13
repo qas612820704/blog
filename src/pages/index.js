@@ -1,9 +1,11 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { Container, Row, Col } from 'reactstrap';
 import SEO, { postListToSEO } from '../components/SEO';
+import { withLayout } from '../layouts';
 import Post from '../components/Post';
 
-export default ({ data }) => (
+const Index = ({ data }) => (
   <Container>
     <SEO seo={postListToSEO(data.posts)}/>
     <Row>
@@ -15,6 +17,8 @@ export default ({ data }) => (
     </Row>
   </Container>
 )
+
+export default withLayout(Index);
 
 export const query = graphql`
   query IndexQuery {

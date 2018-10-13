@@ -1,6 +1,6 @@
 import React from 'react'
 import HeadRoom from 'react-headroom';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import cover from '../../static/cover.jpeg';
 import logo from '../../static/logo.png';

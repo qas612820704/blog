@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import hoistNonReactStatic from 'hoist-non-react-statics'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { injectGlobal } from 'styled-components';
@@ -13,7 +14,7 @@ injectGlobal`
   }
 `
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
   <div>
     <Helmet>
       <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" />
@@ -21,7 +22,21 @@ export default ({ children }) => (
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     </Helmet>
     <Header />
-    { children() }
+    { children }
     <Footer />
   </div>
 )
+
+export const withLayout = (Component) => {
+  const C = (props) => (
+    <Layout>
+      <Component {...props} />
+    </Layout>
+  )
+  C.dispalyName = `withLayout(${Component.displayName || Component.name})`;
+  C.WrappedComponent = Component;
+
+  return hoistNonReactStatic(C, Component);
+}
+
+export default Layout;

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap'
+import { graphql } from 'gatsby';
+import { Container, Row, Col } from 'reactstrap';
+import { withLayout } from '../layouts';
 import SEO, { postToSEO } from '../components/SEO';
-import Post from '../components/Post'
+import Post from '../components/Post';
 
-export default ({ pathContext, data }) => (
+const PostTemplate = ({ data }) => (
   <Container>
     <SEO seo={postToSEO(data.post)} />
     <Row>
@@ -13,6 +15,8 @@ export default ({ pathContext, data }) => (
     </Row>
   </Container>
 );
+
+export default withLayout(PostTemplate);
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
