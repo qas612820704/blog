@@ -31,11 +31,12 @@ module.exports = {
           },
           `gatsby-remark-prismjs`,
           {
-            resolve: "gatsby-remark-copy-linked-files",
+            resolve: `gatsby-remark-images`,
             options: {
-              ignoreFileExtensions: [],
+              maxWidth: 740,
             },
           },
+          `gatsby-remark-copy-linked-files`,
           {
             resolve: `gatsby-remark-external-links`,
             options: {
