@@ -1,81 +1,55 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Disqus from './Disqus';
-import { Hr, inlineCodeCss, Article as d4Article } from './Components.styled';
 import _ from '../variables';
+import { rhythm } from '../layouts/typography';
 
-const Post = styled.div`
-  margin-bottom: 2em;
-`;
+const Info = styled.div`
+  margin: ${rhythm(0.75)} 0;
+  text-align: right;
 
-const Info = styled.p`
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-
-  *:last-child {
-    margin-bottom: 0;
+  > * {
+    margin: ${rhythm(0.5)} 0;
   }
 
-  ${props => props.right && css`
-    text-align: right;
-  `}
-`;
-
-const Text = styled(d4Article)`
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-
-  & > *:first-child {
-    margin-top: 2em;
-  }
-
-  &::first-letter, & > p:first-child::first-letter {
-    font-size: 200%;
-  }
-
-  & :not(pre) > code[class*="language-"] {
-    ${inlineCodeCss}
-  }
-
-  .gatsby-highlight {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
 `;
 
 export default ({ post, active }) => (
-  <Post active={active}>
-    <h1>
+  <div active={active}>
+    <h1 style={{ marginBottom: rhythm(0.25) }}>
       <b>
         <Link to={post.fields.slug}>
         { post.frontmatter.title }
         </Link>
       </b>
     </h1>
+    <p>
+      <small>
+        {post.frontmatter.date}
+        {', '}
+        <span style={{ color: _.secondary }}>{post.timeToRead} min read</span>
+      </small>
+    </p>
+    { !active && <article>{post.excerpt} <Link to={post.fields.slug}>read more</Link></article>}
+    { active && <article dangerouslySetInnerHTML={{ __html: post.html }} />}
     <Info>
-      {post.frontmatter.date}
-      {', '}
-      <span style={{ color: _.secondary }}>{post.timeToRead} min read</span>
-    </Info>
-    { !active && <Text>{post.excerpt} <Link to={post.fields.slug}>read more</Link></Text>}
-    { active && <Text dangerouslySetInnerHTML={{ __html: post.html }} />}
-    <Info right>
-      Category
-      {' '}
-      <span style={{ color: _.secondary }}>{post.frontmatter.category}</span>
-    </Info>
-    <Info right>
-      Tags
-      {' '}
-      <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
+      <p>
+        Category
+        {' '}
+        <span style={{ color: _.secondary }}>{post.frontmatter.category}</span>
+      </p>
+      <p>
+        Tags
+        {' '}
+        <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
+      </p>
     </Info>
     { active && (
       <div>
-        <Hr />
         <h2>Comments</h2>
         <Disqus post={post}/>
       </div>
     )}
-  </Post>
+  </div>
 );

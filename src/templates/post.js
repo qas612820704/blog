@@ -1,19 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Row, Col } from 'reactstrap';
 import { withLayout } from '../layouts';
 import SEO, { postToSEO } from '../components/SEO';
 import Post from '../components/Post';
+import FadeIn from '../layouts/FadeIn';
 
 const PostTemplate = ({ data }) => (
-  <Container>
+  <FadeIn>
     <SEO seo={postToSEO(data.post)} />
-    <Row>
-      <Col xs={12}>
-        <Post post={data.post} active />
-      </Col>
-    </Row>
-  </Container>
+    <Post post={data.post} active />
+  </FadeIn>
 );
 
 export default withLayout(PostTemplate);

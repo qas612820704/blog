@@ -1,30 +1,31 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import hoistNonReactStatic from 'hoist-non-react-statics'
+import hoistNonReactStatic from 'hoist-non-react-statics';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { injectGlobal } from 'styled-components';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'prismjs/themes/prism-okaidia.css';
+import { rhythm } from './typography';
+import 'prismjs/themes/prism.css';
 import 'katex/dist/katex.min.css';
-
-injectGlobal`
-  body {
-    font-family: 'Libre Baskerville', serif !important;
-  }
-`
+import './theme.css';
 
 const Layout = ({ children }) => (
-  <div>
+  <section>
     <Helmet>
-      <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" />
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     </Helmet>
     <Header />
+    <div style={{
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      padding: `0 ${rhythm(0.5)}`,
+      maxWidth: rhythm(24),
+    }}
+    >
     { children }
+    </div>
     <Footer />
-  </div>
+  </section>
 )
 
 export const withLayout = (Component) => {

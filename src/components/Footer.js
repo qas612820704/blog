@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { rhythm } from '../layouts/typography';
 import _ from '../variables';
 
 const Footer = styled.footer`
@@ -10,10 +11,10 @@ const Footer = styled.footer`
   font-size: 70%;
   color: ${_.white};
   background: ${_.grayDark};
-`
+`;
 
 export default () => (
-  <Footer>
+  <Footer style={{ marginTop: rhythm(2) }}>
     <p>Lego's Site Since 2017</p>
     <p>
       Logo made with
@@ -23,4 +24,4 @@ export default () => (
       </a>
     </p>
   </Footer>
-)
+);

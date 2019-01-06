@@ -1,21 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Row, Col } from 'reactstrap';
 import SEO, { postListToSEO } from '../components/SEO';
 import { withLayout } from '../layouts';
+import FadeIn from '../layouts/FadeIn';
 import Post from '../components/Post';
 
 const Index = ({ data }) => (
-  <Container>
-    <SEO seo={postListToSEO(data.posts)}/>
-    <Row>
-      { data.posts.edges.map(edge => (
-      <Col xs={12}>
-        <Post post={edge.node} />
-      </Col>
-      ))}
-    </Row>
-  </Container>
+  <FadeIn>
+  <SEO seo={postListToSEO(data.posts)}/>
+  { data.posts.edges.map(edge => (
+    <Post post={edge.node} />
+  ))}
+  </FadeIn>
 )
 
 export default withLayout(Index);

@@ -1,0 +1,22 @@
+.gatsby-highlight {
+  margin-bottom: 1.75rem;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #feb;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
+}
+
+.token.operator {
+  background: initial;
+}
+
+:not(pre) > code {
+  padding: 0.1em 0.5em !important;
+  font-size: 0.8em;
+}

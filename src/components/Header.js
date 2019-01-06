@@ -2,11 +2,12 @@ import React from 'react'
 import HeadRoom from 'react-headroom';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { rhythm } from '../layouts/typography';
 import cover from '../../static/cover.jpeg';
 import logo from '../../static/logo.png';
 import _, { media } from '../variables';
 
-const Room = styled.div`
+const Room = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 1em 2em;
@@ -14,6 +15,7 @@ const Room = styled.div`
 
 const BedRoom = styled.div`
   img {
+    margin: 0;
     height: 1em;
   }
 `;
@@ -27,8 +29,8 @@ const Balcony = styled.div`
 
 const Header = styled.header`
   display: flex;
-  margin-bottom: 2em;
   height: 300px;
+  margin-bottom: ${rhythm(2)};
 
   background: url(${cover});
   background-position: center center;
@@ -43,7 +45,6 @@ const Wrapper = styled.div`
   text-align: center;
   text-shadow: 2px 2px ${_.gray};
   color: ${_.white};
-  background: #343a409e;
   background: ${_.light}5e;
   font-family: ${_.fontFamilyMonospace};
 
@@ -58,9 +59,11 @@ const Wrapper = styled.div`
       text-decoration: none;
     }
   }
-
-  h1 {
-    font-weight: 800;
+  h1, h2 {
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-family: inherit;
+    color: inherit;
   }
   *:last-child {
     margin-bottom: 0;

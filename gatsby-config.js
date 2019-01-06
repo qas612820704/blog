@@ -29,14 +29,18 @@ module.exports = {
               directory: `${__dirname}/leetcode.js/`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '>',
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 740,
             },
           },
-          `gatsby-remark-copy-linked-files`,
           {
             resolve: `gatsby-remark-external-links`,
             options: {
@@ -44,6 +48,8 @@ module.exports = {
               rel: `nofollow`,
             },
           },
+          `gatsby-remark-copy-linked-files`,
+          'gatsby-remark-smartypants',
           `gatsby-remark-katex`,
         ],
       },
@@ -51,5 +57,11 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/layouts/typography`,
+      },
+    },
   ]
 };
