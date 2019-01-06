@@ -6,7 +6,7 @@ import FaFacebook from 'react-icons/lib/fa/facebook-square';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaEvelope from 'react-icons/lib/fa/envelope';
 import styled from 'styled-components';
-import { Flex, Box } from 'reflexbox';
+import { Flex, Box } from '../elements/flex';
 import avatar from '../../static/avatar.jpg';
 import { withLayout } from '../layouts';
 import FadeIn from '../layouts/FadeIn';
@@ -14,11 +14,6 @@ import FadeIn from '../layouts/FadeIn';
 const Avatar = styled.img`
   width: 80%;
   border-radius: 50%;
-`
-
-const FaEvelopeX = styled(FaEvelope)`
-  margin-left: 0.1em;
-  font-size: 1.15em !important;
 `;
 
 const introJsx = `\
@@ -31,7 +26,7 @@ const introJsx = `\
 
 const About = () => (
   <FadeIn>
-    <Flex align='center'>
+    <Flex __center>
       <Box w={1/2}><Avatar src={avatar} alt='Lego' /></Box>
       <Box w={1/2}>
         <PrismCode component="pre" className="language-html">
@@ -61,7 +56,7 @@ const About = () => (
         </p>
         <p>
           <a href="mailto:qas612820704@gmail.com">
-            <FaEvelopeX /> qas612820704@gmail.com
+            <FaEvelope /> qas612820704@gmail.com
           </a>
         </p>
       </Box>
