@@ -1,7 +1,8 @@
 import React from 'react'
 import HeadRoom from 'react-headroom';
-import { Link } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import Img from 'gatsby-image';
 import { rhythm } from '../layouts/typography';
 import cover from '../../static/cover.jpeg';
 import logo from '../../static/logo.png';
@@ -70,6 +71,21 @@ const Wrapper = styled.div`
   }
 `
 
+const CoverImg = () => (
+  <StaticQuery
+    query={graphql`{
+      cover: file(relativePath: { eq: "cover.jpeg" }) {
+        childImageSharp {
+          fixed(height: 300, cropFocus: CENTER) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }`}
+    render={data => <Img style={{ width: '100%' }} fixed={data.cover.childImageSharp.fixed} />}
+  />
+)
+
 export default () => (
   <div>
     <HeadRoom style={{ background: _.white, boxShadow: '0 0 8px #888888' }}>
@@ -88,5 +104,6 @@ export default () => (
         </Link>
       </Wrapper>
     </Header>
+    <CoverImg />
   </div>
 )
