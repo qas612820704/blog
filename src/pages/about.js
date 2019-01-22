@@ -5,7 +5,7 @@ import PrismCode from 'react-prism';
 import FaFacebook from 'react-icons/lib/fa/facebook-square';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaEvelope from 'react-icons/lib/fa/envelope';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Flex, Box } from '../elements/flex';
 import avatar from '../../static/avatar.jpg';
 import { withLayout } from '../layouts';

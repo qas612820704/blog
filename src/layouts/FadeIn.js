@@ -1,6 +1,6 @@
 import React from 'react';
 import hoistNonReactStatic from 'hoist-non-react-statics';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { rhythm } from './typography';
 
 const FadeIn = styled.div`

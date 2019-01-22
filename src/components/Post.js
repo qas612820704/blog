@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Disqus from './Disqus';
 import _ from '../variables';
 import { rhythm } from '../layouts/typography';

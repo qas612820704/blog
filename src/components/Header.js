@@ -1,7 +1,7 @@
 import React from 'react'
 import HeadRoom from 'react-headroom';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { rhythm } from '../layouts/typography';
 import cover from '../../static/cover.jpeg';
 import logo from '../../static/logo.png';
