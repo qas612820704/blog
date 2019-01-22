@@ -44,14 +44,18 @@ export default ({ post, active, isNetlifyCMS }) => (
     }/>
     <Info>
       <p>
-        Category
-        {' '}
-        <span style={{ color: _.secondary }}>{post.frontmatter.category}</span>
+        <small>
+          Category
+          {' '}
+          <span style={{ color: _.secondary }}>{post.frontmatter.category}</span>
+        </small>
       </p>
       <p>
-        Tags
-        {' '}
-        <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
+        <small>
+          Tags
+          {' '}
+          <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
+        </small>
       </p>
     </Info>
     { active && !isNetlifyCMS && (
