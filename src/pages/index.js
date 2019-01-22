@@ -9,7 +9,7 @@ const Index = ({ data }) => (
   <FadeIn>
   <SEO seo={postListToSEO(data.posts)}/>
   { data.posts.edges.map(edge => (
-    <Post post={edge.node} />
+    <Post key={edge.node.id} post={edge.node} />
   ))}
   </FadeIn>
 )
