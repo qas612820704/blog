@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import Disqus from './Disqus';
@@ -15,7 +15,14 @@ const Info = styled.div`
 
 `;
 
-export default ({ post, active }) => (
+const Content = ({ content }) => {
+  if (React.isValidElement(content)) {
+    return <article children={content} />
+  }
+  return <article dangerouslySetInnerHTML={{ __html: content }} />
+}
+
+export default ({ post, active, isNetlifyCMS }) => (
   <div active={active}>
     <h1 style={{ marginBottom: rhythm(0.25) }}>
       <b>
@@ -31,8 +38,10 @@ export default ({ post, active }) => (
         <span style={{ color: _.secondary }}>{post.timeToRead} min read</span>
       </small>
     </p>
-    { !active && <article>{post.excerpt} <Link to={post.fields.slug}>read more</Link></article>}
-    { active && <article dangerouslySetInnerHTML={{ __html: post.html }} />}
+    <Content content={active
+      ? post.html
+      : <Fragment>{post.excerpt} <Link to={post.fields.slug}>read more</Link></Fragment>
+    }/>
     <Info>
       <p>
         Category
@@ -45,7 +54,7 @@ export default ({ post, active }) => (
         <span style={{ color: _.secondary }}>{post.frontmatter.tags.join(', ')}</span>
       </p>
     </Info>
-    { active && (
+    { active && !isNetlifyCMS && (
       <div>
         <h2>Comments</h2>
         <Disqus post={post}/>
