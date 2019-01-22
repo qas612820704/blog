@@ -45,6 +45,7 @@
     "recompose": "^0.27.0",
     "rimraf": "^2.6.2",
     "typeface-libre-baskerville": "^0.0.54",
+    "typeface-merriweather": "^0.0.54",
     "typography": "^0.16.18",
     "typography-theme-stow-lake": "^0.16.18"
   }

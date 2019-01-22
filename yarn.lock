@@ -13914,6 +13914,11 @@ typeface-libre-baskerville@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-libre-baskerville/-/typeface-libre-baskerville-0.0.54.tgz#4f9fd7e0d0812f73291e70258498d647c3af892d"
   integrity sha512-Irbz2y/QWJxoiJMdVxTK4zRKUZ2wdDVtf7c/mVO5lDgFLqnYnjaYh2/mTr/VuSsFnY8mK6A9mVp/QjB7XSYKpA==
 
+typeface-merriweather@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-0.0.54.tgz#a6b694d93c7ac432e26e8d7797a19afe83844186"
+  integrity sha512-K3DOVMCE/KNapWBJ8vW15G44JSl7OVVr2mfy8cuZfY8ZDSiqGKF+Pk1VB/lD7TRaLJlmV11ytwoQ8z+3Z+2n4g==
+
 typography-breakpoint-constants@^0.16.18:
   version "0.16.18"
   resolved "https://registry.yarnpkg.com/typography-breakpoint-constants/-/typography-breakpoint-constants-0.16.18.tgz#5b1e24a31879662ca0456828b8f8f8158cd2b436"
