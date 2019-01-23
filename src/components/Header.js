@@ -28,6 +28,7 @@ const Balcony = styled.div`
 
 
 const Header = styled.header`
+  position: relative;
   display: flex;
   height: 300px;
   margin-bottom: ${rhythm(2)};
@@ -36,6 +37,15 @@ const Header = styled.header`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(10deg, #2f2d33, #917160, #e16f50);
+  }
 `
 
 const Wrapper = styled.div`
