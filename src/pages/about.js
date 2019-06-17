@@ -2,9 +2,9 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import Prism from 'prismjs';
 import PrismCode from 'react-prism';
-import FaFacebook from 'react-icons/lib/fa/facebook-square';
-import FaGithub from 'react-icons/lib/fa/github';
-import FaEvelope from 'react-icons/lib/fa/envelope';
+import {
+  FaFacebook, FaGithub, FaEnvelope
+} from 'react-icons/fa';
 import styled from '@emotion/styled';
 import { Flex, Box } from '../elements/flex';
 import avatar from '../../static/avatar.jpg';
@@ -56,7 +56,7 @@ const About = () => (
         </p>
         <p>
           <a href="mailto:qas612820704@gmail.com">
-            <FaEvelope /> qas612820704@gmail.com
+            <FaEnvelope /> qas612820704@gmail.com
           </a>
         </p>
       </Box>

@@ -8,20 +8,22 @@ import 'prismjs/themes/prism.css';
 import 'katex/dist/katex.min.css';
 import './theme.css';
 
-const Layout = ({ children }) => (
+export const layoutCss = {
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  padding: `0 ${rhythm(0.5)}`,
+  maxWidth: rhythm(32),
+};
+
+const Layout = ({ children, fluid = false }) => (
   <section>
     <Helmet>
+      <html lang="zh-hant"/>
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     </Helmet>
     <Header />
-    <div style={{
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      padding: `0 ${rhythm(0.5)}`,
-      maxWidth: rhythm(24),
-    }}
-    >
+    <div style={fluid ? {} : layoutCss}>
     { children }
     </div>
     <Footer />
