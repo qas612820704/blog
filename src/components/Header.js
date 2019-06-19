@@ -86,7 +86,7 @@ export default () => (
       <Room>
         <BedRoom><Link to="/"><img src={logo} alt=""/></Link></BedRoom>
         <Balcony>
-          <Link to="/about">About</Link>
+          <Link to="/resume">About</Link>
         </Balcony>
       </Room>
     </HeadRoom>
