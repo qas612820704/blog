@@ -22,6 +22,7 @@ tags:
 - 不支援過於過時的瀏覽器(e.g. IE), 私心來說我並沒有經歷過這段痛苦的時期
 
 - 在 html 中加入 IE meta:
+
 ```html
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 ```
@@ -29,6 +30,7 @@ tags:
 - 看 https://caniuse.com/, 是否要使用的 `CSS` rule 有在預期支援的瀏覽器中
 
 - 使用 `vendor prefix`:
+
 ```css
   -moz-*
   -webkit-*
@@ -36,6 +38,7 @@ tags:
 ```
 
 - 使用 `CSS` 關鍵字 `@supports` 來向後兼容
+
 ```css
   @supports (display: flex) {
     div {
