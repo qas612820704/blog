@@ -6,8 +6,6 @@ category: Web
 tags:
   - KKStream
 ---
-# FEInterviewQuestions Videoteam
-
 ## CSS
 
 ### 1. Please illustrate an image of CSS box model.
@@ -39,17 +37,17 @@ tags:
 
 - 使用 `CSS` 關鍵字 `@supports` 來向後兼容
 ```css
-@supports (display: flex) {
-  div {
-    display: flex;
+  @supports (display: flex) {
+    div {
+      display: flex;
+    }
   }
-}
 
-@supports not (display: flex) {
-  div {
-    float: left;
+  @supports not (display: flex) {
+    div {
+      float: left;
+    }
   }
-}
 ```
 
 ### 3. What's the difference between inline and inline-block?
