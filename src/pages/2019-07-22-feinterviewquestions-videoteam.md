@@ -195,6 +195,40 @@ function removeDuplicateWords(str) {
 
 ```
 
+**更正**: 刪除 _連續_ 重複的字
+
+```js
+
+/**
+ * @param {string} str
+ * @return {string}
+ */
+function removeContinuousDuplicateWords(str) {
+  let prevWord = '';
+
+  // Keep separators
+  const patterns = str.split(/([\n\t\s,])/g);
+
+  return patterns
+    .filter(pattern => {
+      let result = true;
+
+      // pattern is word
+      if (pattern.match(/\w+/)) {
+        if (pattern === prevWord) {
+          result = false;
+        }
+        prevWord = pattern;
+      }
+
+      return result;
+    })
+    .join('');
+}
+
+
+```
+
 ### 2. Find highest (max1) and second highest (max2) numbers from given array. (algorithm)
 
 ```js
