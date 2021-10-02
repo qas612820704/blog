@@ -24,7 +24,7 @@ const CharAvatar = ({
   color = 'white',
   bgColor = '#39b4a7',
   char = 'A',
-  ...restProps,
+  ...restProps
 }) => {
   return (
     <Avatar color={color} bgColor={bgColor} {...restProps}>

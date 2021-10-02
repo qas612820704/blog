@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 const modifier = (mod) => (...args) => props => props[mod] && css(...args)
 
@@ -8,7 +8,7 @@ export const Flex = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  ${modifier('__center')( css`
+  ${modifier('__center')(css`
     align-items: center;
   `)}
 `;
